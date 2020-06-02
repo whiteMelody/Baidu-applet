@@ -1,0 +1,93 @@
+<!--pages/lessonPlay/lessonPlay.wxml-->
+<view class='wb100 warpper-gray-5' style='min-height:{{height}}px'>
+
+  <view style='background-color:#101010' class='pa5'>
+    <view class="wb100 center" style='height:92rpx; background:url(/images/bg-title.png); background-size:100% 100%;'>
+      <image src='../../images/icon-lrc.png' style='width:96rpx; height:62rpx; margin:15rpx; float:left;' />
+      <view style='width:488rpx; ' class='Fwhite F32 text-center h100rpx lh100rpx fl'>
+        {{lesson.lessonName}}
+      </view>
+      <image src='../../images/icon-menu.png' style='width:96rpx; height:62rpx; margin:15rpx; float:right;' bindtap='openMenu' />
+    </view>
+  </view>
+
+  <view class="wb100 h100 fixed" hidden="{{!showMenu}}" style='background:rgba(255,255,255,.1); top:0; left:0; z-index:999;' bindtap='closeMenu'>
+    <view class='w375rpx h100 fr over-auto' style='background:rgba(255,255,255,.9);'>
+      <view class='pal30 par30 F24'>
+        <block s-for="item,index in playList">
+            <view class="h80rpx lh80rpx text-over-hidden1 bor-gray bor-solid-1b {{ index == currentPlay ? 'Fblue' : 'Fgray-4' }}" bindtap="changePlay" data-id="{{item.lessonID}}">
+                {{item.lessonName}}
+            </view>
+            
+
+              <!-- <view s-if="index < channel.freeLessonNum" class="h80rpx lh80rpx text-over-hidden1 bor-gray bor-solid-1b {{ index == currentPlay ? 'Fblue' : 'Fgray-4' }}" bindtap="changePlay" data-id="{{item.lessonID}}">
+                  {{item.lessonName}}
+              </view>
+              <view s-else class="h80rpx lh80rpx text-over-hidden1 bor-gray bor-solid-1b Fgray-5 {{ index == currentPlay ? 'Fblue' : 'Fgray-4' }}" bindtap="buyLesson">
+                  {{item.lessonName}}
+              </view> -->
+          </block>
+        </view>
+    </view>
+  </view>
+ 
+  <view class="clear h100rpx"></view>
+
+  <!-- bg -->
+  <view class="center relative" style='width:630rpx; height:630rpx'>
+
+    <view style='width:630rpx; height:630rpx' animation="{{animationData}}">
+
+      <image src='../../images/play-bg.png' style='width:630rpx; height:630rpx' />
+
+      <image src='{{channel.iconURL}}?x-oss-process=image/resize,m_fixed,h_240,w_240' style='width:240rpx; height:240rpx; left:0; right:0; top:0; bottom:0; margin:auto; z-index:1;' class='radius50per absolute'></image>
+
+      <image src='../../images/play-point.png' style='width:52rpx; height:52rpx; left:0; right:0; top:0; bottom:0; margin:auto; z-index:2;' class='radius50per absolute' />
+
+    </view>
+
+    <view class="absolute" style='width:216rpx; height:498rpx; right:-35rpx; top:0; z-index:100;'>
+      <image src='../../images/play-bar.png'  style='width:216rpx; height:498rpx' />
+    </view>
+
+  </view>
+
+  <!-- <view class="clear h100rpx" style='border-bottom:2rpx solid #d2d4d6'></view> -->
+  <!-- <view class="clear h100rpx" style='border-bottom:2rpx solid #d2d4d6'></view> -->
+
+  <view class="clear h100rpx"></view>
+
+  <view class="wb100 absolute" style='bottom: 50rpx'>
+
+    <!-- 各种按钮 -->
+
+    <view class="wb100">
+
+      <view class="center" style='width:428rpx'>
+        <image src='../../images/icon-prev.png' style='width:100rpx; height:100rpx; margin-top:14rpx; float:left;' bindtap='prev' />
+        
+        <image hidden="{{isPause}}" src='../../images/icon-pause.png' style='width:128rpx; height:128rpx; margin:0 50rpx; float:left;' bindtap='pause' />
+        <image hidden="{{!isPause}}" src='../../images/icon-play.png' style='width:128rpx; height:128rpx; margin:0 50rpx; float:left;' bindtap='play' />
+
+        <image src='../../images/icon-next.png' style='width:100rpx; height:100rpx; margin-top:14rpx; float:left;' bindtap='next' />
+      </view>
+
+    </view>
+
+    <view class="clear1"></view>
+
+    <!-- 进度条 -->
+    <view class="relative" style='padding: 0 120rpx;'>
+      <view class="absolute F32 w100rpx" style='left:50rpx; top:0; color:#959698;'>
+        {{currentTime}}
+      </view>
+      <slider value="{{playSeek}}" bindchange="changed" bindchanging="changeing" backgroundColor="#bec3c7" block-size="12" block-color="#ededed" activeColor="#848486" />
+      <view class="absolute F32 fr w100rpx text-right" style='right:50rpx; top:0; color:#959698;'>
+        {{totleTime2}}
+      </view>
+    </view>
+  </view>
+
+  <view class='clear h100rpx'></view>
+
+</view>

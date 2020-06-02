@@ -1,0 +1,4 @@
+/* pages/videoDetail/videoDetail.wxss */
+button::after {
+  border: none;
+}

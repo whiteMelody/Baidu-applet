@@ -1,0 +1,12 @@
+{
+  "usingComponents": {
+    "login-tag": "/pages/login/login",
+    "tab-bar": "/pages/tabBar/tabBar"
+  }
+}
+  
+
+
+
+
+  

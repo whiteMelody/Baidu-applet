@@ -1,0 +1,49 @@
+{
+    "debug": false,
+    "pages": [
+        "pages/index/index",
+        "pages/audioList/audioList",
+        "pages/channelList/channelList",
+        "pages/data/data",
+        "pages/everyDay/everyDay",
+        "pages/everyList/everyList",
+        "pages/lesson/lesson",
+        "pages/lessonPlay/lessonPlay",
+        "pages/user/user",
+        "pages/videoList/videoList",
+        "pages/videoPlay/videoPlay"
+    ],
+    "window": {
+        "navigationBarBackgroundColor": "#f7faff",
+        "navigationBarTitleText": "7天英语",
+        "navigationBarTextStyle": "black",
+        "backgroundTextStyle": "black",
+        "enablePullDownRefresh": false
+    },
+    "networkTimeout": {
+        "request": 30000,
+        "connectSocket": 10000,
+        "uploadFile": 10000,
+        "downloadFile": 10000
+    },
+    "tabBar": {
+        "color": "#a2a2a2",
+        "selectedColor": "#3388ff",
+        "borderStyle": "black",
+        "backgroundColor": "#ffffff",
+        "list": [
+            {
+                "pagePath": "pages/index/index",
+                "iconPath": "images/icon-home.png",
+                "selectedIconPath": "images/icon-home-on.png",
+                "text": "首页"
+            },
+            {
+                "pagePath": "pages/data/data",
+                "iconPath": "images/icon-data.png",
+                "selectedIconPath": "images/icon-data-on.png",
+                "text": "资料库"
+            }
+        ]
+    }
+}

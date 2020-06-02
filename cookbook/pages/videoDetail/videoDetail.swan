@@ -1,0 +1,12 @@
+<!--pages/videoDetail/videoDetail.wxml-->
+<view class="wb100">
+
+
+  <video id="myVideo" class="wb100 absolute" src="{{url}}" objectFit="contain" controls="{{controls}}" show-center-play-btn="false" show-play-btn="false" custom-cache="false" autoplay="true" style='height:100%' bindended="bindended">
+
+  </video>
+
+
+
+
+</view>

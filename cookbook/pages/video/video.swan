@@ -1,0 +1,37 @@
+<view class='wb100' style='height: {{height}}px'>
+
+  <block s-for="item,index in videoList">
+
+    <!-- <view class="pa30 F34">
+      <view class="text-over-hidden2">{{item.title}}</view>
+    </view> -->
+
+    <image class="wb100 h400rpx" style='display:block' src='{{item.cover_img}}' mode="aspectFill"></image>
+
+    <!-- 播放视频 -->
+    <view class="wb100 absolute h400rpx" style='margin-top:-400rpx' bindtap="videoDetail" data-id="{{item.id}}" data-title="{{item.title}}" data-url="{{item.oss_url}}" data-cover="{{item.cover_img}}" data-index="{{index}}">
+      <view class="w120rpx h120rpx center" style='margin-top:140rpx'>
+        <image class="w120rpx h120rpx" src='/images/bf.png'></image>
+      </view>
+    </view>
+
+    <view class="wb100 h90rpx lh90rpx">
+      <view class="pal30 par30">
+        <!-- 播放量 -->
+        <view class="wb100">
+          <view class="fl">
+            <view class="text-over-hidden1 F32">{{item.title}}</view>
+          </view>
+          <view class="fr">
+            <image src='/images/icon-bf.png' class="fl w40rpx h40rpx mat25 mar15"></image>
+            <view class="fl h90rpx lh90rpx F30 Fgray-2">{{item.play}}</view>
+          </view>
+        </view>
+      </view>
+    </view>
+
+    <view class="clear" style='background:#F3F3F3;height:20rpx'></view>
+
+  </block>
+
+</view>

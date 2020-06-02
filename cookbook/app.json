@@ -1,0 +1,41 @@
+{
+    "pages": [
+        "pages/index/index",
+        "pages/cards/cards",
+        "pages/video/video",
+        "pages/videoDetail/videoDetail",
+        "pages/search/search",
+        "pages/detail/detail"
+    ],
+    "tabBar": {
+        "borderStyle": "white",
+        "backgroundColor": "#ffffff",
+        "selectedColor": "#FD5B78",
+        "color": "#909399",
+        "list": [
+            {
+                "pagePath": "pages/index/index",
+                "text": "首页",
+                "iconPath": "images/icon-home.png",
+                "selectedIconPath": "images/icon-home-on.png"
+            },
+            {
+                "pagePath": "pages/search/search",
+                "text": "菜谱",
+                "iconPath": "images/icon-menu2.png",
+                "selectedIconPath": "images/icon-menu2-on.png"
+            },
+            {
+                "pagePath": "pages/video/video",
+                "text": "视频",
+                "iconPath": "images/icon-video.png",
+                "selectedIconPath": "images/icon-video-on.png"
+            }
+        ]
+    },
+    "window": {
+        "navigationBarBackgroundColor": "#fff",
+        "navigationBarTitleText": "菜谱大全",
+        "navigationBarTextStyle": "black"
+    }
+}

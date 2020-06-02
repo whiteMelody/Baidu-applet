@@ -1,0 +1,179 @@
+<!--index.wxml-->
+<view class='wb100 warpper-gray-3'>
+
+  <view class='clear1'></view>
+
+  <!-- 测试登录API -->
+
+  <button open-type="getUserInfo" class="wb100 text-center" bindgetuserinfo="onGotUserInfo">
+    <view class='F28 Fwhite h50rpx lh50rpx'>前去登录</view>
+  </button>
+
+
+  <!-- 每日一句 -->
+  <view class='wb100'>
+
+    <view class='wb100'>
+      <view class='h40rpx lh40rpx fl bor-blue bor-solid-10l mal30 mar30 pal15 w200rpx F36'>
+        每日推荐
+      </view>
+
+      <navigator url='/pages/everyList/everyList'>
+        <view class="h40rpx lh40rpx fr mar30 Fblue F28">
+          更多 <image src="../../images/icon-arrow-right.png" style='width:14rpx; height:26rpx; margin-top:6.5rpx; float:right; margin-left:10rpx;' />
+        </view>
+      </navigator>
+    </view>
+
+    <view class="clear1"></view>
+
+    <view class="pal30 par30">
+
+      <navigator url='/pages/everyDay/everyDay?date={{date}}'>
+
+        <view class="wb100">
+          <view class="w150rpx h150rpx warpper-blue fl radius20">
+            <image src="{{everyDay.imageURL}}?x-oss-process=image/resize,m_fill,w_150,h_150" class='radius20' style='width:150rpx; height:150rpx;' />
+          </view>
+
+          <view class="Fgray-3">
+            <view class="h70rpx lh70rpx over-hidden pal20 F28 Fblack">
+              每日一句
+            </view>
+            <view class='pal20 lh40rpx text-over-hidden2 F24'>
+            {{everyDay.languageEN}} {{everyDay.languageCN}}
+            </view>
+          </view>
+
+        </view>
+      </navigator>
+    </view>
+
+  </view>
+
+  <view class="clear1"></view>
+  <view class="clear1"></view>
+
+  <!-- 最近更新 -->
+  <view class='wb100'>
+
+    <view class='wb100'>
+      <view class='h40rpx lh40rpx fl bor-blue bor-solid-10l mal30 mar30 pal15 w200rpx F36'>
+        最近更新
+      </view>
+
+    </view>
+
+    <view class="clear1"></view>
+
+    <view class="pal30 par30 over-scroll">
+      <view style="width: {{210 * newList.length}}rpx">
+        <block s-for="item in newList">
+          <navigator url="/pages/lesson/lesson?channelID={{item.channelID}}">
+            <view class="warpper-white box-shadow-gray3 radius10 fl mar30 w180rpx over-hidden mab10">
+              <view class='wb100'>
+                <view class='w180rpx h180rpx'>
+                  <image src="{{item.iconURL}}?x-oss-process=image/resize,m_fill,w_180,h_180" style='width:180rpx; height:180rpx;' />
+                </view>
+                <view class="F24 h60rpx lh60rpx text-over-hidden1 Fgray3 pal10 par10 text-center">
+                  {{item.channelName}}
+                </view>
+              </view>
+            </view>
+          </navigator>
+        </block>
+      </view>
+    </view>
+
+  </view>
+
+  <view class="clear1"></view>
+  <view class="clear1"></view>
+
+  <!-- 热门音频 -->
+  <view class='wb100'>
+
+    <view class='wb100'>
+      <view class='h40rpx lh40rpx fl bor-blue bor-solid-10l mal30 mar30 pal15 w200rpx F36'>
+        热门音频
+      </view>
+
+      <!-- <navigator url='/pages/audioList/audioList'>
+        <view class="h40rpx lh40rpx fr mar30 Fblue F28">
+          更多 <image src="../../images/icon-arrow-right.png" style='width:14rpx; height:26rpx; margin-top:6.5rpx; float:right; margin-left:10rpx;' />
+        </view>
+      </navigator> -->
+
+      <navigator url='/pages/audioList/audioList'>
+        <view class="h40rpx lh40rpx fr mar30 Fblue F28">
+          更多 <image src="../../images/icon-arrow-right.png" style='width:14rpx; height:26rpx; margin-top:6.5rpx; float:right; margin-left:10rpx;' />
+        </view>
+      </navigator>
+    </view>
+
+    <view class="clear1"></view>
+
+    <view class="pal15 par15">
+
+      <block s-for="item in audioList">
+
+        <navigator url="/pages/lesson/lesson?channelID={{item.channelID}}">
+          <view class="ma15 fl w330rpx warpper-white box-shadow-gray3 radius10 over-hidden">
+            <view class="wb100 warpper-blue" style='height:208rpx'>
+              <image src="{{item.iconURL}}?x-oss-process=image/resize,m_fill,w_330,h_208" style='width:330rpx; height:208rpx;' />
+            </view>
+            <view class="F24 h60rpx lh60rpx text-over-hidden1 Fgray3 pal10 par10 text-center">
+              {{item.channelName}}
+            </view>
+          </view>
+        </navigator>
+
+      </block>
+
+    </view>
+
+  </view>
+
+  <view class="clear1"></view>
+  <view class="clear1"></view>
+
+  <!-- 热门视频 -->
+  <view class='wb100'>
+
+    <view class='wb100'>
+      <view class='h40rpx lh40rpx fl bor-blue bor-solid-10l mal30 mar30 pal15 w200rpx F36'>
+        热门视频
+      </view>
+
+      <navigator url='/pages/videoList/videoList'>
+        <view class="h40rpx lh40rpx fr mar30 Fblue F28">
+          更多 <image src="../../images/icon-arrow-right.png" style='width:14rpx; height:26rpx; margin-top:6.5rpx; float:right; margin-left:10rpx;' />
+        </view>
+      </navigator>
+    </view>
+
+    <view class="clear1"></view>
+
+    <view class="pal15 par15">
+
+      <block s-for="item in videoList">
+
+        <navigator url="/pages/lesson/lesson?channelID={{item.channelID}}">
+          <view class="ma15 fl w330rpx warpper-white box-shadow-gray3 radius10 over-hidden">
+            <view class="wb100 warpper-blue" style='height:208rpx'>
+              <image src="{{item.iconURL}}?x-oss-process=image/resize,m_fill,w_330,h_208" style='width:330rpx; height:208rpx;' />
+            </view>
+            <view class="F24 h60rpx lh60rpx text-over-hidden1 Fgray3 pal10 par10 text-center">
+              {{item.channelName}}
+            </view>
+          </view>
+        </navigator>
+      </block>
+
+    </view>
+
+  </view>
+
+  <view class="clear1"></view>
+
+</view>
